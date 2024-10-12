@@ -1,0 +1,166 @@
+<div class="login-container">
+    <div class="form-box">
+        <% if (message && message.length > 0) { %>
+            <div class="notification">
+                <%= message %>
+            </div>
+        <% } %>
+        <h1>ثبت نام</h1>
+        <form action="/register" method="POST">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="نام کاربری مورد نظر خود را وارد کنید" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="رمز عبور خود را ایجاد کنید" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="تأیید رمز عبور" required>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="show-password">
+                <label for="show-password">نمایش رمز عبور</label>
+            </div>
+            <div class="input-group">
+                <button type="submit">ثبت نام</button>
+            </div>
+        </form>
+        <div class="login-link">
+            <p>قبلا ثبت نام کرده اید؟</p>
+            <a href="/login"><button class="login-btn">ورود</button></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const showPasswordCheckbox = document.getElementById('show-password');
+        const passwordInput = document.getElementById('password');
+
+
+        showPasswordCheckbox.addEventListener('change', function() {
+            passwordInput.type = this.checked ? 'text' : 'Password';
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const showPasswordCheckbox = document.getElementById('show-password');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword'); // فیلد تأیید رمز عبور
+    
+        showPasswordCheckbox.addEventListener('change', function() {
+            passwordInput.type = this.checked ? 'text' : 'password';
+            confirmPasswordInput.type = this.checked ? 'text' : 'password'; // تغییر نوع فیلد تأیید رمز عبور
+        });
+    });
+    
+</script>
+
+
+
+<style>
+
+    body {
+        background: linear-gradient(135deg, #6C4EFB, #8E70F5);
+    }
+    .notification {
+        background-color: #f8d7da; /* پس‌زمینه قرمز ملایم */
+        border: 1px solid #f5c6cb; /* حاشیه قرمز */
+        padding: 10px; /* فاصله داخلی */
+        border-radius: 5px; /* گوشه‌های گرد */
+        color: red; /* رنگ متن */
+        margin-bottom: 20px; /* فاصله پایین */
+        text-align: center; /* متن وسط‌چین */
+        width: 100%; /* عرض کامل */
+        max-width: 400px; /* حداکثر عرض */
+    }
+    
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-box {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+    }
+
+    .form-box h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: #6C4EFB;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .input-group button {
+        width: 100%;
+        padding: 12px;
+        background-color: #6C4EFB;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .input-group button:hover {
+        background-color: #5a3fcf;
+    }
+    .login-link {
+        margin-top: 20px;
+    }
+
+    .login-link p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #fff;
+        color: #6C4EFB;
+        border: 2px solid #6C4EFB;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .login-btn:hover {
+        background-color: #6C4EFB;
+        color: white;
+    }
+    .checkbox-group {
+        display: flex;
+        align-items: center; /* تراز کردن چک باکس و متن */
+        margin-bottom: 20px; /* فاصله پایین */
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+        width: 16px; /* اندازه کوچک چک باکس */
+        height: 16px; /* اندازه کوچک چک باکس */
+        margin-right: 5px; /* فاصله بین چک باکس و متن */
+    }
+    
+
+</style>
